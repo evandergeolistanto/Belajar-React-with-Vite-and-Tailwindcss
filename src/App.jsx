@@ -4,26 +4,39 @@ import PlaceContentCenter from './components/PlaceContentCenter';
 import { IconBrandGithub } from '@tabler/icons';
 import Input from './components/Input';
 import { Label } from './components/Label';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import ToDo from './components/ToDo';
 
 const App = () => {
-    const [form, setForm] = useState({
-        name: '',
-        email: ''
-    })
+    //     const [form, setForm] = useState({
+    //         name: '',
+    //         email: '',
+    //     });
+    //
+    //     function onChange(event) {
+    //         setForm({ ...form, [event.target.name]: event.target.value });
+    //     }
+    //
+    //     function submit(event) {
+    //         event.preventDefault();
+    //         console.log(form);
+    //     }
 
-    function onChange(event){
-        setForm({...form, [event.target.name]: event.target.value})
+    // const [tick, setTick] = useState(0);
+
+    const inputRef = useRef(null);
+
+    function handleClick() {
+        inputRef.current.focus();
+        //         tick.current += 1
+        //
+        //         console.log(tick.current)
+        // const nextTick = tick + 1;
+        // setTick(nextTick);
     }
-
-    function submit (event){
-        event.preventDefault()
-        console.log(form)
-    }
-
     return (
-    <PlaceContentCenter>
-            <Card>
+        <PlaceContentCenter>
+            {/* <Card>
                 <Card.Title>Sign Up Now</Card.Title>
                 
                 <form onSubmit={submit}>
@@ -51,9 +64,18 @@ const App = () => {
                 </form>
                 
                 
+            </Card> */}
+            {/* <ToDo></ToDo> */}
+            <Card>
+                <Card.Title>useRef Hooks</Card.Title>
+                <Card.Body>
+                    <Input isFocused className='border border-slate-400'  />
+                    <Button onClick={handleClick}>Tick</Button>
+                </Card.Body>
+                {/* <Card.Footer>You clicke {tick.current} times</Card.Footer> */}
             </Card>
-    </PlaceContentCenter>
-    )
+        </PlaceContentCenter>
+    );
 };
 
 export default App;

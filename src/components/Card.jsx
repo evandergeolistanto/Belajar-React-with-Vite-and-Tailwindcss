@@ -13,7 +13,7 @@ function Body({ children }) {
     return <div className='leading-relaxed p-4 text-black'>{children}</div>;
 }
 function Footer({ children }) {
-    return <div className='bg-slate-50 p-4'>{children}</div>;
+    return <div className='bg-slate-50 p-4 text-black'>{children}</div>;
 }
 Card.Title = Title;
 Card.Footer = Footer;
